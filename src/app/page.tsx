@@ -1,9 +1,29 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useContext } from "react";
 import styles from "./page.module.css";
+import { NameContext } from "./provider/NameProvider";
 
 export default function Home() {
+  const { name, setName } = useContext(NameContext);
+  const handleClickButton = (e) => {
+    e.preventDefault();
+    const inputValue = e.currentTarget.querySelector("input").value;
+    setName(inputValue);
+  };
+
   return (
     <main className={styles.main}>
+      <Link href="/name">페이지 이동</Link>
+      <form onSubmit={handleClickButton}>
+        <input type="text" />
+        <button type="submit">바꾸기</button>
+      </form>
+
+      <h1> 이름은 {name} 입니다</h1>
+
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
