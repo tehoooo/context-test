@@ -2,16 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
+import { FormEvent, FormEventHandler, useContext } from "react";
 import styles from "./page.module.css";
 import { NameContext } from "./provider/NameProvider";
 
 export default function Home() {
   const { name, setName } = useContext(NameContext);
-  const handleClickButton = (e) => {
+  const handleClickButton = (e: FormEvent) => {
     e.preventDefault();
-    const inputValue = e.currentTarget.querySelector("input").value;
-    setName(inputValue);
+    const inputValue = e.currentTarget.querySelector("input")?.value;
+    setName(inputValue || "");
   };
 
   return (
