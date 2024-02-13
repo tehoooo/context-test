@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { useCallback, useContext } from "react";
 import styles from "./page.module.css";
 import { CountContext } from "./provider/CountProvider";
@@ -20,6 +20,7 @@ export default function Home() {
         <Link href="/test">
           <h2>Test Page</h2>
         </Link>
+        <Image alt="image" src="/images/sleep.png" width={100} height={100} />
       </div>
     </main>
   );
