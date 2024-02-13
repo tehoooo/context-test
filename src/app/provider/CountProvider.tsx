@@ -7,7 +7,6 @@ import {
   SetStateAction,
   useState,
 } from "react";
-import { createMixContext } from "next-approuter-context";
 import { FC } from "react";
 
 interface CountContextType {
@@ -16,11 +15,6 @@ interface CountContextType {
 }
 
 export const CountContext = createContext<CountContextType>({
-  count: 0,
-  setCount: () => {},
-});
-
-export const context1 = createMixContext<CountContextType>({
   count: 0,
   setCount: () => {},
 });
